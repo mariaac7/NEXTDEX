@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <h1>NEXTDEX</h1>
+            <p>Sistema de Gestión para Talleres</p>
+        </div>
+
+        <form>
+
+            <div class="input-group">
+                <label>Usuario</label>
+                <input type="text" placeholder="Ingrese su usuario">
+            </div>
+
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="Ingrese su contraseña">
+            </div>
+
+            <button type="submit">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

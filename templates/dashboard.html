@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="layout">
+
+    {% include 'components/sidebar.html' %}
+
+    <main class="content">
+
+        {% include 'components/navbar.html' %}
+
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+
+            <div class="card blue">
+                <div>
+                    <h3>Reparaciones</h3>
+                    <h2>12</h2>
+                </div>
+                <i class="bi bi-tools"></i>
+            </div>
+
+            <div class="card green">
+                <div>
+                    <h3>Clientes</h3>
+                    <h2>154</h2>
+                </div>
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div class="card orange">
+                <div>
+                    <h3>Ventas</h3>
+                    <h2>$8,450</h2>
+                </div>
+                <i class="bi bi-cash-stack"></i>
+            </div>
+
+            <div class="card red">
+                <div>
+                    <h3>Pendientes</h3>
+                    <h2>6</h2>
+                </div>
+                <i class="bi bi-clock-history"></i>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
