@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Equipo</title>
+</head>
+
+<body>
+
+<h1>Paso 2 de 6: Equipo</h1>
+
+<h2>Cliente seleccionado:</h2>
+
+{% if cliente %}
+
+<p>
+Nombre: {{ cliente["nombre"] }}
+</p>
+
+<p>
+Teléfono: {{ cliente["telefono"] }}
+</p>
+
+{% else %}
+
+<p>No se encontró cliente</p>
+
+{% endif %}
+
+
+<hr>
+
+<h2>Datos del equipo</h2>
+
+<label>Marca</label>
+<input type="text">
+
+<br><br>
+
+<label>Modelo</label>
+<input type="text">
+
+<br><br>
+
+<button>
+Siguiente
+</button>
+
+
+</body>
+
+</html>

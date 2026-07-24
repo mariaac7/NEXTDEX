@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Reparación - Cliente</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>Nueva Reparación</h1>
+
+<h2>Paso 1 de 6: Cliente</h2>
+
+
+<form method="POST">
+
+
+<label>Nombre *</label>
+<input type="text" name="nombre" placeholder="Nombre del cliente">
+
+
+<label>Teléfono *</label>
+<input type="text" name="telefono" placeholder="Número telefónico">
+
+
+<label>Correo</label>
+<input type="email" name="correo" placeholder="Correo">
+
+
+<label>Dirección</label>
+<input type="text" name="direccion" placeholder="Dirección">
+
+
+<label>INE</label>
+<input type="text" name="ine" placeholder="INE">
+
+
+<label>Notas</label>
+<textarea name="notas" placeholder="Notas del cliente"></textarea>
+
+<br><br>
+
+<button type="button">
+🔍 Buscar cliente existente
+</button>
+
+
+<button type="submit">
+➕ Crear cliente
+</button>
+
+
+<button type="submit">
+➡️ Siguiente
+</button>
+
+
+</form>
+
+
+</div>
+
+</body>
+
+</html>
