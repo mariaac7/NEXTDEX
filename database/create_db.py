@@ -29,26 +29,38 @@ CREATE TABLE IF NOT EXISTS clientes (
 # EQUIPOS
 # =========================
 
+# Tabla de equipos
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS equipos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+
     cliente_id INTEGER NOT NULL,
-    marca TEXT,
-    modelo TEXT,
+
+    marca TEXT NOT NULL,
+    modelo TEXT NOT NULL,
     color TEXT,
     capacidad TEXT,
+
     imei TEXT,
     numero_serie TEXT,
 
-    patron TEXT,
-    pin TEXT,
-    contrasena TEXT,
+    compania TEXT,
+    nivel_bateria INTEGER,
+
+    tipo_bloqueo TEXT,
+    clave_bloqueo TEXT,
 
     cuenta_google TEXT,
     cuenta_apple TEXT,
 
-    bateria TEXT,
-    compania TEXT,
+    observaciones_estado TEXT,
+
+    foto_frontal TEXT,
+    foto_trasera TEXT,
+    foto_lateral TEXT,
+    foto_dano TEXT,
+
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY(cliente_id) REFERENCES clientes(id)
 )

@@ -1,0 +1,70 @@
+<div class="card shadow-sm mb-4">
+
+    <div class="card-body">
+
+
+        {% if paso == 1 %}
+            {% set porcentaje = "16%" %}
+        {% elif paso == 2 %}
+            {% set porcentaje = "33%" %}
+        {% elif paso == 3 %}
+            {% set porcentaje = "50%" %}
+        {% elif paso == 4 %}
+            {% set porcentaje = "66%" %}
+        {% elif paso == 5 %}
+            {% set porcentaje = "83%" %}
+        {% elif paso == 6 %}
+            {% set porcentaje = "100%" %}
+        {% else %}
+            {% set porcentaje = "16%" %}
+        {% endif %}
+
+
+        <div class="progress" style="height:12px;">
+
+            <div
+                class="progress-bar bg-primary"
+                style="width: {{ porcentaje }};">
+            </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-between mt-3">
+
+
+            <small class="{% if paso >= 1 %}fw-bold text-primary{% endif %}">
+                👤 Cliente
+            </small>
+
+
+            <small class="{% if paso >= 2 %}fw-bold text-primary{% endif %}">
+                📱 Equipo
+            </small>
+
+
+            <small class="{% if paso >= 3 %}fw-bold text-primary{% endif %}">
+                🔧 Diagnóstico
+            </small>
+
+
+            <small class="{% if paso >= 4 %}fw-bold text-primary{% endif %}">
+                📦 Accesorios
+            </small>
+
+
+            <small class="{% if paso >= 5 %}fw-bold text-primary{% endif %}">
+                💰 Costos
+            </small>
+
+
+            <small class="{% if paso >= 6 %}fw-bold text-primary{% endif %}">
+                ✅ Confirmación
+            </small>
+
+
+        </div>
+
+    </div>
+
+</div>

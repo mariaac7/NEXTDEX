@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}
+Nueva Reparación | Diagnóstico
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reparaciones.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-tools"></i>
+
+                Nueva Reparación
+
+            </h2>
+
+
+            <small class="text-muted">
+
+                Paso 3 de 6 · Diagnóstico
+
+            </small>
+
+
+        </div>
+
+
+
+        <div class="text-end">
+
+            <strong>{{ cliente["nombre"] }}</strong><br>
+
+            <small>{{ cliente["telefono"] }}</small>
+
+        </div>
+
+
+    </div>
+
+
+    {% include 'components/progress.html' %}
+
+
+
+<form method="POST">
+
+
+<!-- ===================== -->
+<!-- FALLAS -->
+<!-- ===================== -->
+
+
+<div class="card section-card">
+
+
+<div class="card-header">
+
+<i class="bi bi-exclamation-triangle"></i>
+
+Fallas detectadas
+
+</div>
+
+
+
+<div class="card-body">
+
+
+<div class="row">
+
+
+{% set fallas = [
+
+"No carga",
+"Pantalla rota",
+"Sin imagen",
+"Táctil no funciona",
+"Batería dañada",
+"Se reinicia",
+"Mojado",
+"No enciende",
+"Sin señal",
+"Cámara",
+"Bocina",
+"Micrófono",
+"Software",
+"Face ID",
+"Huella",
+"WiFi",
+"Bluetooth",
+"Otro"
+
+] %}
+
+
+
+{% for falla in fallas %}
+
+<div class="col-md-4 mb-3">
+
+
+<div class="form-check">
+
+
+<input 
+class="form-check-input"
+type="checkbox"
+name="fallas"
+value="{{ falla }}">
+
+
+<label class="form-check-label">
+
+{{ falla }}
+
+</label>
+
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- ===================== -->
+<!-- DESCRIPCIONES -->
+<!-- ===================== -->
+
+
+<div class="card section-card mt-4">
+
+
+<div class="card-header">
+
+<i class="bi bi-chat-left-text"></i>
+
+Detalles del diagnóstico
+
+</div>
+
+
+
+<div class="card-body">
+
+
+
+<label class="form-label">
+
+Comentario del cliente
+
+</label>
+
+
+<textarea 
+class="form-control mb-3"
+rows="3"
+name="comentario_cliente"></textarea>
+
+
+
+
+<label class="form-label">
+
+Diagnóstico técnico
+
+</label>
+
+
+<textarea 
+class="form-control mb-3"
+rows="4"
+name="diagnostico_tecnico"></textarea>
+
+
+
+
+<label class="form-label">
+
+Trabajo recomendado
+
+</label>
+
+
+<textarea 
+class="form-control"
+rows="3"
+name="trabajo_recomendado"></textarea>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- BOTONES -->
+
+
+<div class="d-flex justify-content-between mt-5 mb-4">
+
+
+<a href="javascript:history.back()"
+class="btn btn-secondary">
+
+<i class="bi bi-arrow-left"></i>
+
+Anterior
+
+</a>
+
+
+
+<button type="submit"
+class="btn btn-primary">
+
+
+Guardar diagnóstico y continuar
+
+<i class="bi bi-arrow-right"></i>
+
+
+</button>
+
+
+
+</div>
+
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

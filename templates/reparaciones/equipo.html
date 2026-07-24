@@ -1,0 +1,508 @@
+{% extends "base.html" %}
+
+{% block title %}Nueva Reparación | Equipo{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reparaciones.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold">
+                <i class="bi bi-phone"></i>
+                Nueva Reparación
+            </h2>
+
+            <small class="text-muted">
+                Paso 2 de 6 · Información del equipo
+            </small>
+        </div>
+
+        <div class="text-end">
+
+            <strong>{{ cliente["nombre"] }}</strong><br>
+
+            <small>{{ cliente["telefono"] }}</small>
+
+        </div>
+
+    </div>
+
+    {% include 'components/progress.html' %}
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <form class="row">
+
+            <!-- ===================== -->
+            <!-- INFORMACIÓN -->
+            <!-- ===================== -->
+
+            <div class="col-lg-8">
+
+                <div class="card section-card">
+
+                    <div class="card-header">
+
+                        <i class="bi bi-phone"></i>
+
+                        Información del equipo
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Marca *
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    name="marca"
+                                    required>
+
+                                    <option value="">Seleccionar...</option>
+
+                                    <option>Samsung</option>
+                                    <option>Apple</option>
+                                    <option>Xiaomi</option>
+                                    <option>Motorola</option>
+                                    <option>Huawei</option>
+                                    <option>Honor</option>
+                                    <option>Oppo</option>
+                                    <option>Vivo</option>
+                                    <option>Realme</option>
+                                    <option>ZTE</option>
+                                    <option>Nokia</option>
+                                    <option>Otro</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Modelo *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="modelo"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>Color</label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="color">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>Capacidad</label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="capacidad"
+                                    placeholder="128 GB">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>IMEI</label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="imei">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>Número de serie</label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="numero_serie">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>Compañía</label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="compania">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>Nivel de batería (%)</label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    min="0"
+                                    max="100"
+                                    name="bateria">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PRUEBAS DEL EQUIPO -->
+
+                <div class="card section-card">
+
+                    <div class="card-header">
+                        <i class="bi bi-clipboard-check"></i>
+                        Pruebas iniciales
+                    </div>
+
+
+                    <div class="card-body">
+
+
+                        <label class="form-label">
+                            ¿Enciende?
+                        </label>
+
+                        <div>
+
+                            <input 
+                            type="radio"
+                            name="prueba_enciende"
+                            value="Si">
+
+                            Sí
+
+
+                            <input 
+                            type="radio"
+                            name="prueba_enciende"
+                            value="No">
+
+                            No
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <label class="form-label">
+                            ¿Carga?
+                        </label>
+
+                        <div>
+
+                            <input 
+                            type="radio"
+                            name="prueba_carga"
+                            value="Si">
+
+                            Sí
+
+
+                            <input 
+                            type="radio"
+                            name="prueba_carga"
+                            value="No">
+
+                            No
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <label class="form-label">
+                            ¿Da imagen?
+                        </label>
+
+                        <div>
+
+                            <input 
+                            type="radio"
+                            name="prueba_imagen"
+                            value="Si">
+
+                            Sí
+
+
+                            <input 
+                            type="radio"
+                            name="prueba_imagen"
+                            value="No">
+
+                            No
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <label class="form-label">
+                            ¿Funciona táctil?
+                        </label>
+
+                        <div>
+
+                            <input 
+                            type="radio"
+                            name="prueba_tactil"
+                            value="Si">
+
+                            Sí
+
+
+                            <input 
+                            type="radio"
+                            name="prueba_tactil"
+                            value="No">
+
+                            No
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                </div>
+
+                
+
+    <!-- ===================== -->
+    <!--seguridad-->
+    <!-- ===================== -->
+
+            <div class="card section-card">
+
+                <div class="card-header">
+                    <i class="bi bi-lock"></i>
+                    Seguridad del equipo
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="row">
+
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Tipo de bloqueo
+                            </label>
+
+                            <select 
+                            class="form-select"
+                            name="tipo_bloqueo">
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option value="Sin bloqueo">
+                                    Sin bloqueo
+                                </option>
+
+                                <option value="PIN">
+                                    PIN
+                                </option>
+
+                                <option value="Patron">
+                                    Patrón
+                                </option>
+
+                                <option value="Contrasena">
+                                    Contraseña
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Clave de bloqueo
+                        </label>
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        name="clave_bloqueo">
+
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Cuenta Google
+                        </label>
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        name="cuenta_google">
+
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Cuenta Apple
+                        </label>
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        name="cuenta_apple">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+            <!-- ===================== -->
+            <!-- FOTOGRAFÍAS DEL EQUIPO -->
+            <!-- ===================== -->
+
+            <div class="card section-card mt-4">
+
+                <div class="card-header">
+
+                    <i class="bi bi-camera"></i>
+                    Fotografías del equipo
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="row">
+
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Foto frontal
+                            </label>
+
+                            <input 
+                            type="file"
+                            class="form-control"
+                            name="foto_frontal"
+                            accept="image/*">
+
+                        </div>
+
+
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Foto trasera
+                            </label>
+
+                            <input 
+                            type="file"
+                            class="form-control"
+                            name="foto_trasera"
+                            accept="image/*">
+
+                        </div>
+
+
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Foto de daño
+                            </label>
+
+                            <input 
+                            type="file"
+                            class="form-control"
+                            name="foto_dano"
+                            accept="image/*">
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+<!-- ===================== -->
+<!-- botones -->
+<!-- ===================== -->
+
+            <div class="d-flex justify-content-between align-items-center mt-5 mb-4 px-3"></div>
+                <a href="/nueva_reparacion" 
+                class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+                 Anterior
+
+                </a>
+
+
+            <button type="submit" 
+                class="btn btn-primary">
+
+                Guardar y continuar
+                <i class="bi bi-arrow-right"></i>
+
+            </button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
